@@ -43,31 +43,47 @@ Answer Generation (LLM)
 
 ```txt
 ambedkargpt1_copy/
-├── .pytest_cache/                 # Pytest cache directory
+├── .pytest_cache/                    # Pytest cache directory
 ├── data/
-│   └── Ambedkar_book.pdf         # Source document
+│   └── Ambedkar_book.pdf             # Source document (Dr. B.R. Ambedkar's work)
 ├── processed/
-│   ├── chunks.pkl                # Cached semantic chunks
-│   └── knowledge_graph.pkl       # Cached knowledge graph
+│   ├── chunks.pkl                    # Cached semantic chunks
+│   └── knowledge_graph.pkl           # Cached knowledge graph
 ├── src/
 │   ├── chunking/
+│   │   ├── __pycache__/
 │   │   ├── __init__.py
-│   │   └── semantic_chunker.py   # Semantic chunking (Algorithm 1)
+│   │   └── semantic_chunker.py       # Semantic chunking (Algorithm 1)
 │   ├── graph/
+│   │   ├── __pycache__/
 │   │   ├── __init__.py
-│   │   ├── community_detector.py # Leiden algorithm
-│   │   └── entity_extractor.py   # spaCy NER
-│   ├── graph_builder.py          # Knowledge graph construction
+│   │   ├── community_detector.py     # Leiden algorithm for communities
+│   │   ├── entity_extractor.py       # spaCy-based entity extraction
+│   │   └── graph_builder.py          # Knowledge graph construction
 │   ├── llm/
 │   │   ├── __init__.py
-│   │   └── llm_client.py         # Local Ollama interface
-│   └── pipeline/
+│   │   └── llm_client.py             # Ollama/LLM interface
+│   ├── pipeline/
+│   │   ├── __pycache__/
+│   │   ├── __init__.py
+│   │   └── ambedkargpt1.py           # Main pipeline orchestrator
+│   └── retrieval/
+│       ├── __pycache__/
 │       ├── __init__.py
-│       └── ambedkargpt1.py       # Pipeline main orchestrator
-└── retrieval/
-    ├── __init__.py
-    ├── global_search.py          # Community-based retrieval
-    └── local_search.py           # Entity + chunk similarity
+│       ├── global_search.py          # Community-based global search
+│       ├── local_search.py           # Entity-based local search
+│       └── retrieval_engine.py       # Hybrid retrieval engine
+├── tests/
+│   ├── __pycache__/
+│   ├── test_chunking.py              # Chunking tests
+│   ├── test_integration.py           # End-to-end integration tests
+│   └── test_retrieval.py             # Retrieval tests
+├── app.py                            # Streamlit UI application
+├── config.yaml                       # System configuration
+├── inspect_graph.py                  # Utility to inspect knowledge graph
+├── README.md                         # This file
+├── requirements.txt                  # Python dependencies
+└── system.log                        # Application logs
 ```
 
 Installation
