@@ -1,0 +1,15 @@
+langchain
+langchain-community
+sentence-transformers
+spacy
+networkx
+cdlib
+leidenalg
+python-louvain
+ollama
+pypdf
+numpy
+scikit-learn
+pyyaml
+pandas
+tqdm

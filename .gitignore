@@ -1,0 +1,48 @@
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Virtual environment ---
+venv/
+.env/
+.env*/       
+
+# --- OS-specific ---
+.DS_Store
+Thumbs.db
+
+# --- Build and packaging ---
+*.egg-info/
+dist/
+build/
+
+# --- Project cache and processed files ---
+processed/
+*.pkl
+*.log
+*.db
+
+# --- Streamlit ---
+.streamlit/
+**/.streamlit/
+
+# --- pytest cache ---
+.pytest_cache/
+
+# --- Jupyter notebooks checkpoints ---
+.ipynb_checkpoints/
+
+# --- PDFs or raw data ---
+data/*.pdf      # Only if you don’t want to push the Ambedkar book
+data/*
+
+# --- IDE specific ---
+.vscode/
+.idea/
+
+# --- Ollama models (local) ---
+**/.ollama/
+ollama/
+

@@ -1,0 +1,24 @@
+# config.yaml
+paths:
+  pdf_path: "data/Ambedkar_book.pdf"
+  output_folder: "processed"
+
+models:
+  embedding_model: "all-MiniLM-L6-v2"
+  llm_model: "llama3:8b"              
+  spacy_model: "en_core_web_sm"
+
+chunking:
+  buffer_size: 1          # Parameter 'b' in Algorithm 1 [cite: 410]
+  breakpoint_threshold: 0.5 # Threshold 'tau' for cosine distance [cite: 398]
+  max_tokens: 1024        # Max token limit per chunk [cite: 406]
+  overlap_tokens: 128     # Overlap for sub-chunks [cite: 406]
+
+graph:
+  community_algorithm: "leiden" 
+
+retrieval:
+  top_k_local: 5
+  top_k_global: 3
+  local_threshold_e: 0.3 # Threshold for Entity Similarity (Equation 4) [cite: 457]
+  local_threshold_d: 0.3 # Threshold for Chunk Similarity (Equation 4) [cite: 457]
