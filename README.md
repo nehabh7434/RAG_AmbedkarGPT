@@ -12,87 +12,64 @@ Interactive UI: Streamlit-based chat interface
 Local LLM Integration: Powered by Ollama (Llama 3)
 
 Architecture
-┌─────────────────────────────────────────────────────────────┐
-│                    Input: PDF Document                       │
-└─────────────────────────────────────────────────────────────┘
-                            │
-                            ▼
-┌─────────────────────────────────────────────────────────────┐
-│  Step 1: Semantic Chunking (Algorithm 1)                    │
-│  - Sentence splitting with spaCy                             │
-│  - Buffer merging for context preservation                   │
-│  - Cosine distance-based breakpoint detection                │
-│  - Overlap splitting for large chunks                        │
-└─────────────────────────────────────────────────────────────┘
-                            │
-                            ▼
-┌─────────────────────────────────────────────────────────────┐
-│  Step 2: Knowledge Graph Construction                        │
-│  - Entity extraction (spaCy NER)                             │
-│  - Relationship mapping                                      │
-│  - Community detection (Leiden algorithm)                    │
-│  - Community summarization (LLM)                             │
-└─────────────────────────────────────────────────────────────┘
-                            │
-                            ▼
-┌─────────────────────────────────────────────────────────────┐
-│  Step 3: Retrieval Engine                                    │
-│  - Local Search: Entity + Chunk similarity                   │
-│  - Global Search: Community-based retrieval                  │
-│  - Hybrid fusion of results                                  │
-└─────────────────────────────────────────────────────────────┘
-                            │
-                            ▼
-┌─────────────────────────────────────────────────────────────┐
-│  Answer Generation (LLM)                                     │
-│  - Context injection                                         │
-│  - Ollama/Llama 3 inference                                  │
-└─────────────────────────────────────────────────────────────┘
+──────────────────────────────────────────────────────────────
 
+Input: PDF Document
+        │
+        ▼
+Step 1: Semantic Chunking (Algorithm 1)
+        │── Sentence splitting with spaCy
+        │── Buffer merging for context preservation
+        │── Cosine distance–based breakpoint detection
+        └── Overlap splitting for large chunks
+        │
+        ▼
+Step 2: Knowledge Graph Construction
+        │── Entity extraction (spaCy NER)
+        │── Relationship mapping
+        │── Community detection (Leiden algorithm)
+        └── Community summarization (LLM)
+        │
+        ▼
+Step 3: Retrieval Engine
+        │── Local Search: Entity + Chunk similarity
+        │── Global Search: Community-based retrieval
+        └── Hybrid fusion of results
+        │
+        ▼
+Answer Generation (LLM)
+        └── Context injection into Ollama / Llama-3
+
+──────────────────────────────────────────────────────────────
 Project Structure
+──────────────────────────────────────────────────────────────
 
 ambedkargpt1_copy/
-├── .pytest_cache/                    # Pytest cache directory
+├── .pytest_cache/                 # Pytest cache directory
 ├── data/
-│   └── Ambedkar_book.pdf             # Source document (Dr. B.R. Ambedkar's work)
+│   └── Ambedkar_book.pdf          # Source document (Dr. B. R. Ambedkar)
 ├── processed/
-│   ├── chunks.pkl                    # Cached semantic chunks
-│   └── knowledge_graph.pkl           # Cached knowledge graph
+│   ├── chunks.pkl                 # Cached semantic chunks
+│   └── knowledge_graph.pkl        # Cached knowledge graph
 ├── src/
 │   ├── chunking/
-│   │   ├── __pycache__/
 │   │   ├── __init__.py
-│   │   └── semantic_chunker.py       # Semantic chunking (Algorithm 1)
+│   │   └── semantic_chunker.py    # Semantic chunking (Algorithm 1)
 │   ├── graph/
-│   │   ├── __pycache__/
 │   │   ├── __init__.py
-│   │   ├── community_detector.py     # Leiden algorithm for communities
-│   │   ├── entity_extractor.py       # spaCy-based entity extraction
-│   │   └── graph_builder.py          # Knowledge graph construction
+│   │   ├── community_detector.py  # Leiden algorithm
+│   │   ├── entity_extractor.py    # spaCy-based NER
+│   │   └── graph_builder.py       # Graph building
 │   ├── llm/
 │   │   ├── __init__.py
-│   │   └── llm_client.py             # Ollama/LLM interface
-│   ├── pipeline/
-│   │   ├── __pycache__/
-│   │   ├── __init__.py
-│   │   └── ambedkargpt1.py           # Main pipeline orchestrator
-│   └── retrieval/
-│       ├── __pycache__/
+│   │   └── llm_client.py          # Local Ollama LLM interface
+│   └── pipeline/
 │       ├── __init__.py
-│       ├── global_search.py          # Community-based global search
-│       ├── local_search.py           # Entity-based local search
-│       └── retrieval_engine.py       # Hybrid retrieval engine
-├── tests/
-│   ├── __pycache__/
-│   ├── test_chunking.py              # Chunking tests
-│   ├── test_integration.py           # End-to-end integration tests
-│   └── test_retrieval.py             # Retrieval tests
-├── app.py                            # Streamlit UI application
-├── config.yaml                       # System configuration
-├── inspect_graph.py                  # Utility to inspect knowledge graph
-├── README.md                         # This file
-├── requirements.txt                  # Python dependencies
-└── system.log                        # Application logs
+│       └── ambedkargpt1.py        # Pipeline main orchestrator
+└── retrieval/
+    ├── __init__.py
+    ├── global_search.py           # Community-based retrieval
+    └── local_search.py            # Entity + chunk similarity retrieval
 
 Installation
 
@@ -249,6 +226,3 @@ Sentence Transformers: all-MiniLM-L6-v2
 LLM: Llama 3 via Ollama
 NER: spaCy en_core_web_sm
 Community Detection: Leiden algorithm
-
-
-Demo Screenshots
