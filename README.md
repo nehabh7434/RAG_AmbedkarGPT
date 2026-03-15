@@ -1,22 +1,13 @@
-AmbedkarGPT: Semantic RAG System
-
-An AI-powered question-answering system for Dr. B.R. Ambedkar's works, built using Semantic Retrieval-Augmented Generation (SemRAG) architecture with knowledge graphs and community detection.
-
-Features
-
-Semantic Chunking: Intelligent document splitting using cosine similarity-based breakpoints
-Knowledge Graph Construction: Entity extraction and relationship mapping
-Community Detection: Leiden algorithm for topic clustering
-Hybrid Search: Combined local (entity-based) and global (community-based) retrieval
-Interactive UI: Streamlit-based chat interface
-Local LLM Integration: Powered by Ollama (Llama 3)
+Build a Retrieval-Augmented Generation (RAG) system that retrieves relevant context from Pride and Prejudice and generates grounded answers to user queries.
+The system combines semantic embeddings, keyword search, and knowledge graph retrieval to improve accuracy and contextual understanding.
+Retrieval performance is evaluated using metrics such as Precision@k, Recall@k, and answer accuracy.
 
 ## Architecture
 
 ```txt
 Input: PDF Document
 │
-├── Step 1: Semantic Chunking (Algorithm 1)
+├── Step 1: Semantic Chunking (Algorithm)
 │   ├── Sentence splitting with spaCy
 │   ├── Buffer merging for context preservation
 │   ├── Cosine distance–based breakpoint detection
@@ -42,13 +33,22 @@ Answer Generation (LLM)
 ## Project Structure
 
 ```txt
-ambedkargpt1_copy/
-├── .pytest_cache/                    # Pytest cache directory
+pride_prejuidce/
+├── .pytest_cache/     # Pytest cache directory
+├── assets                   
 ├── data/
-│   └── Ambedkar_book.pdf             # Source document (Dr. B.R. Ambedkar's work)
+│   └── Pride.pdf             # Source document (Dr. B.R. Ambedkar's work)
 ├── processed/
 │   ├── chunks.pkl                    # Cached semantic chunks
 │   └── knowledge_graph.pkl           # Cached knowledge graph
+├── evaluation/
+|    ├── evaluation_queries.json
+│    ├── load_queries
+│    ├── metrics     
+│    ├── report_results.py  
+|    ├── run_answer_eval.py
+│    └── run_retrival_benchmark.py
+|
 ├── src/
 │   ├── chunking/
 │   │   ├── __pycache__/
@@ -66,7 +66,7 @@ ambedkargpt1_copy/
 │   ├── pipeline/
 │   │   ├── __pycache__/
 │   │   ├── __init__.py
-│   │   └── ambedkargpt1.py           # Main pipeline orchestrator
+│   │   └── pride.py           # Main pipeline orchestrator
 │   └── retrieval/
 │       ├── __pycache__/
 │       ├── __init__.py
@@ -79,7 +79,8 @@ ambedkargpt1_copy/
 │   ├── test_integration.py           # End-to-end integration tests
 │   └── test_retrieval.py             # Retrieval tests
 ├── app.py                            # Streamlit UI application
-├── config.yaml                       # System configuration
+├── config.yaml
+├── evaluate.py                      # System configuration
 ├── inspect_graph.py                  # Utility to inspect knowledge graph
 ├── README.md                         # This file
 ├── requirements.txt                  # Python dependencies
@@ -157,29 +158,24 @@ Navigate to http://localhost:8501 in your browser.
 
 Example Queries
 
-"What did Ambedkar say about the origin of Shudras?"
-"Explain Ambedkar's views on democracy"
-"What is the relationship between caste and religion according to Ambedkar?"
-"Describe Ambedkar's critique of Hinduism"
+"Who are the Bennet sisters?"
+"Who are the parents of the Bennet sisters?"
+"Who is the protagonist of Pride and Prejudice?"
+"Who does Jane Bennet marry?"
 
 ## Demo Screenshots
 
-### 🔹 Streamlit UI – Home
-<img src="assets/example_QA_UI.png" width="650"/>
+### 🔹 Retrival
+<img src="assets/retrival.png" width="650"/>
 
 ### 🔹 Chat Interface
-<img src="assets/streamlit_UI.png" width="650"/>
-
-### 🔹 Example QA
-<img src="assets/example_QA.png" width="650"/>
-
-### 🔹 Knowledge Graph Viewer
-<img src="assets/graph1.png" width="650"/>
-<img src="assets/graph2.png" width="650"/>
-
+<img src="assets/generation.png" width="650"/>
 
 ### 🔹 Logging Output (system.log)
 <img src="assets/logging.png" width="650"/>
+
+### 🔹 Example QA
+<img src="example_ans.png" width="650"/>
 
 
 Testing

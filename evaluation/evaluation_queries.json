@@ -1,0 +1,82 @@
+[
+  {
+    "query": "Who are the Bennet sisters?",
+    "expected_answer": "Jane, Elizabeth, Mary, Kitty, and Lydia Bennet."
+  },
+  {
+    "query": "Who is the protagonist of Pride and Prejudice?",
+    "expected_answer": "Elizabeth Bennet."
+  },
+  {
+    "query": "Who is the eldest Bennet sister?",
+    "expected_answer": "Jane Bennet."
+  },
+  {
+    "query": "Who falls in love with Jane Bennet?",
+    "expected_answer": "Charles Bingley."
+  },
+  {
+    "query": "Who is Mr. Darcy?",
+    "expected_answer": "A wealthy gentleman and friend of Charles Bingley."
+  },
+  {
+    "query": "Where does the Bennet family live?",
+    "expected_answer": "Longbourn."
+  },
+  {
+    "query": "Who is the youngest Bennet sister?",
+    "expected_answer": "Lydia Bennet."
+  },
+  {
+    "query": "Who does Elizabeth Bennet eventually marry?",
+    "expected_answer": "Fitzwilliam Darcy."
+  },
+  {
+    "query": "Who persuades Bingley to leave Netherfield initially?",
+    "expected_answer": "Mr. Darcy."
+  },
+  {
+    "query": "Who runs away with Lydia Bennet?",
+    "expected_answer": "George Wickham."
+  },
+  {
+    "query": "Who is Charlotte Lucas?",
+    "expected_answer": "Elizabeth Bennet’s friend who marries Mr. Collins."
+  },
+  {
+    "query": "Who is Mr. Collins?",
+    "expected_answer": "A clergyman and cousin of the Bennet family."
+  },
+  {
+    "query": "Who does Mr. Collins marry?",
+    "expected_answer": "Charlotte Lucas."
+  },
+  {
+    "query": "What is Netherfield?",
+    "expected_answer": "The estate rented by Charles Bingley."
+  },
+  {
+    "query": "Who is Lady Catherine de Bourgh?",
+    "expected_answer": "Mr. Darcy’s wealthy and influential aunt."
+  },
+  {
+    "query": "Why does Mr. Bennet worry about his daughters’ future?",
+    "expected_answer": "Because his estate is entailed and cannot pass to his daughters."
+  },
+  {
+    "query": "Who is Mary Bennet?",
+    "expected_answer": "One of the Bennet sisters known for being serious and studious."
+  },
+  {
+    "query": "What kind of personality does Lydia Bennet have?",
+    "expected_answer": "She is impulsive and flirtatious."
+  },
+  {
+    "query": "Who introduces Bingley to the Bennet family?",
+    "expected_answer": "Mr. Bennet visits Bingley first, leading to their acquaintance."
+  },
+  {
+    "query": "What are the main themes of Pride and Prejudice?",
+    "expected_answer": "Love, marriage, social class, reputation, and personal growth."
+  }
+]

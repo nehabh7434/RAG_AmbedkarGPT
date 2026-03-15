@@ -5,7 +5,7 @@ import os
 # Add src to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from src.pipeline.ambedkargpt1 import initialize_system, generate_answer
+from pipeline.pride import initialize_system, generate_answer
 
 def test_full_pipeline_flow():
     """

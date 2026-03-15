@@ -1,6 +1,6 @@
 # config.yaml
 paths:
-  pdf_path: "data/Ambedkar_book.pdf"
+  pdf_path: "data/Pride.pdf"
   output_folder: "processed"
 
 models:

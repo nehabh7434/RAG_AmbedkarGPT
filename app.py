@@ -6,13 +6,13 @@ import os
 # Add src to path so we can import modules
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
-from src.pipeline.ambedkargpt1 import initialize_system, generate_answer
+from pipeline.pride import initialize_system, generate_answer
 
 # Page Config
-st.set_page_config(page_title="AmbedkarGPT", page_icon="📚", layout="wide")
+st.set_page_config(page_title="Pride and Prejudice RAG System", page_icon="📚", layout="wide")
 
 # Title & Header
-st.title("📚 AmbedkarGPT: SemRAG System")
+st.title("📚 Pride and Prejudice RAG System")
 st.markdown("### An AI Assistant for Dr. B.R. Ambedkar's Works")
 st.markdown("---")
 
@@ -39,7 +39,7 @@ for message in st.session_state.messages:
         st.markdown(message["content"])
 
 # User Input
-if prompt := st.chat_input("Ask a question (e.g., 'What is the origin of Shudras?')..."):
+if prompt := st.chat_input("Ask a question (e.g., 'What happens to Lydia Bennet?')..."):
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):

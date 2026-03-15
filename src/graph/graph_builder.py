@@ -95,7 +95,9 @@ class KnowledgeGraphBuilder:
                 
             # Create a prompt with entities
             entity_list = ", ".join(entities[:20]) # Limit to top 20 to fit context
-            prompt = f"Summarize the relationship between these entities in the context of Dr. B.R. Ambedkar's work: {entity_list}"
+            prompt = f"""You are an expert literary analyst focusing on Jane Austen's 'Pride and Prejudice'. 
+            Briefly summarize the relationships, family connections, or thematic links between the following characters, locations, and concepts from the novel: {entity_list}. 
+            Keep your summary concise, factual to the book, and strictly focused on how these specific entities interact."""
             
             try:
                 # Call Ollama
